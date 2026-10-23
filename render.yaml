@@ -1,0 +1,23 @@
+databases:
+  - name: biocore-db
+    databaseName: biocore
+    user: biocore
+    plan: free
+
+services:
+  - type: web
+    name: biocore-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: biocore-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+    healthCheckPath: /health
