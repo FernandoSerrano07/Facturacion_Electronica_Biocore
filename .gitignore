@@ -1,0 +1,25 @@
+# Credenciales y configuraciones privadas
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Python y pruebas
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Locales, backups y datos privados
+.DS_Store
+.vscode/
+*.sql.gz
+*.dump
+*.sqlite3
+backups/
