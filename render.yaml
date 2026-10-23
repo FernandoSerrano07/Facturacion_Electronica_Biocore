@@ -20,4 +20,26 @@ services:
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
+      # Render es el único que llega al contenedor: confiar en su X-Forwarded-For
+      - key: FORWARDED_ALLOW_IPS
+        value: "*"
+      # Valores secretos: definirlos en el panel de Render (no se guardan en Git)
+      - key: FERNET_KEY
+        sync: false
+      - key: SUPERADMIN_EMAIL
+        sync: false
+      - key: SUPERADMIN_PASSWORD
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM
+        sync: false
     healthCheckPath: /health
